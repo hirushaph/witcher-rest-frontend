@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaSearch } from "react-icons/fa";
 import styled from "styled-components";
 import { useCharacter } from "../hooks/useCharacter";
 
@@ -33,11 +33,15 @@ const Input = styled.input`
   border: 1px solid var(--border-color);
   width: 300px;
   padding: 12px 20px;
-  border-radius: 8px;
+  border-radius: 8px 0 0 8px;
   outline: none;
 
   &:hover {
     box-shadow: 0 2px 10px -3px rgba(var(--dark-shadow), 0.1);
+  }
+
+  &::-webkit-search-cancel-button {
+    cursor: pointer;
   }
 `;
 

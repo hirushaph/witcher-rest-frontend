@@ -70,6 +70,7 @@ const GlobalStyles = createGlobalStyle`
         align-items: center;
         font-size: 1.5rem;
     }
+
 `;
 
 export default GlobalStyles;
