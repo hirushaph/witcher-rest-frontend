@@ -6,16 +6,18 @@ const GlobalStyles = createGlobalStyle`
         --border-color :#E5E5E5;
         --dark-shadow : 0,0,0;
 
-        --color-brand-100 : #b7c2cf;
-        --color-brand-200 : #9faebf;
-        --color-brand-300 : #879ab0;
-        --color-brand-400 : #6f85a0;
-        --color-brand-500 : #577190;
-        --color-brand-600 : #3f5d80;
-        --color-brand-700 : #274870;
-        --color-brand-800 : #0f3460;
-        --color-brand-900 : #0e2f56;
+        --color-brand-100 : #e7ebef;
+        --color-brand-200 : #cfd6df;
+        --color-brand-300 : #b7c2cf;
+        --color-brand-400 : #9faebf;
+        --color-brand-500 : #879ab0;
+        --color-brand-600 : #6f85a0;
+        --color-brand-700 : #577190;
+        --color-brand-800 : #3f5d80;
+        --color-brand-900 : #274870;
+        --color-brand-1000 : #0f3460;
 
+        --color-dark-50 : #F1F1F1;
         --color-dark-100 : #e6e7e7;
         --color-dark-200 : #cdcfd0;
         --color-dark-300 : #b4b6b8;

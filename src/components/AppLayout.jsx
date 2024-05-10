@@ -2,28 +2,32 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import styled from "styled-components";
-import { IconContext } from "react-icons";
 
 const MainContainer = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
+`;
+
+const Main = styled.main`
   margin-top: 30px;
+`;
+
+const StyledAppLayout = styled.div`
+  height: 100vh;
+  overflow: hidden;
 `;
 
 function AppLayout() {
   return (
-    <IconContext.Provider value={{ className: "react-icons" }}>
-      <div>
-        <Header />
-
-        <main>
-          <MainContainer className="container">
-            <Outlet />
-            <Sidebar />
-          </MainContainer>
-        </main>
-      </div>
-    </IconContext.Provider>
+    <StyledAppLayout>
+      <Header />
+      <Main>
+        <MainContainer className="container">
+          <Outlet />
+          <Sidebar />
+        </MainContainer>
+      </Main>
+    </StyledAppLayout>
   );
 }
 
