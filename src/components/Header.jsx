@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import styled from "styled-components";
+import { useCharacter } from "../hooks/useCharacter";
 
 const StyledHeader = styled.header`
   background-color: var(--background-light);
@@ -42,9 +43,23 @@ const Input = styled.input`
 
 function Header() {
   const [search, setSearch] = useState("");
+  const { characters, dispatch } = useCharacter();
 
   function handleSearch(e) {
     setSearch(e.target.value);
+
+    const query = e.target.value.toLowerCase().trim();
+
+    if (!query || query === "") {
+      return dispatch({ type: "characters/clearSearch" });
+    }
+
+    const filterd = characters.filter(
+      (character) =>
+        character.name.toLowerCase().includes(query) ||
+        character.title.toLowerCase().includes(query)
+    );
+    dispatch({ type: "characters/search", payload: filterd });
   }
 
   return (

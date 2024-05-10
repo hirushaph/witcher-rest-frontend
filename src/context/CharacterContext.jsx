@@ -7,6 +7,12 @@ const characterReducer = (state, action) => {
   switch (action.type) {
     case "character/open":
       return { ...state, character: action.payload };
+    case "characters/load":
+      return { ...state, characters: action.payload };
+    case "characters/search":
+      return { ...state, searchResults: action.payload };
+    case "characters/clearSearch":
+      return { ...state, searchResults: null };
     default:
       return state;
   }
@@ -15,6 +21,8 @@ const characterReducer = (state, action) => {
 export function CharacterContextProvider({ children }) {
   const [state, dispatch] = useReducer(characterReducer, {
     character: null,
+    characters: null,
+    searchResults: null,
   });
 
   return (
