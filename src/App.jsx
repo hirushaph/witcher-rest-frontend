@@ -5,19 +5,22 @@ import { Route } from "react-router-dom";
 import AppLayout from "./components/AppLayout";
 import Home from "./pages/Home";
 import { IconContext } from "react-icons";
+import { CharacterContextProvider } from "./context/CharacterContext";
 
 function App() {
   return (
-    <IconContext.Provider value={{ className: "react-icons" }}>
-      <GlobalStyles />
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route path="/" element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </IconContext.Provider>
+    <CharacterContextProvider>
+      <IconContext.Provider value={{ className: "react-icons" }}>
+        <GlobalStyles />
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<Home />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </IconContext.Provider>
+    </CharacterContextProvider>
   );
 }
 

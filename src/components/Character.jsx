@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useCharacter } from "../hooks/useCharacter";
 
 const P = styled.p`
   font-size: 12px;
@@ -39,8 +40,13 @@ const Img = styled.img`
 `;
 
 function Character({ character }) {
+  const { dispatch } = useCharacter();
+  function handleClick() {
+    dispatch({ type: "character/open", payload: character });
+  }
+
   return (
-    <StyledFigure>
+    <StyledFigure onClick={handleClick}>
       <ImageContainer className="image-container">
         <Img src="/garelt.jpg" alt="" width="100%" height="100%" />
       </ImageContainer>
