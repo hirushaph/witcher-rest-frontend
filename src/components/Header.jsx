@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaGithub, FaSearch } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import styled from "styled-components";
 import { useCharacter } from "../hooks/useCharacter";
 

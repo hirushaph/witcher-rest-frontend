@@ -6,16 +6,27 @@ import { useState } from "react";
 import Pagination from "../components/Pagination";
 import { useCharacter } from "../hooks/useCharacter";
 
+const MainDiv = styled.div``;
+
 const StyledCharacterContainer = styled.div`
   /* background-color: green; */
   display: grid;
   grid-template-columns: repeat(4, 140px);
   grid-template-rows: 1fr 1fr;
   gap: 20px;
+  justify-content: space-between;
 `;
 
 const Div = styled.div`
   margin-bottom: 10px;
+  background: var(--color-dark-50);
+  padding: 10px;
+  border-radius: 6px;
+
+  span {
+    font-size: 14px;
+    font-weight: 500;
+  }
 `;
 
 const Span = styled.span`
@@ -26,22 +37,20 @@ const SearchTitle = styled.span``;
 
 function Home() {
   const [characters, setCharacters] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const charactersPerPage = 8;
 
-  const { dispatch, searchResults } = useCharacter();
+  const { dispatch, loading, searchResults } = useCharacter();
 
   useEffect(
     function () {
-      setLoading(true);
+      dispatch({ type: "characters/loading" });
       async function fetchCharacters() {
         const res = await fetch(`${API_BASE_URL}/characters`);
         const data = await res.json();
         if (!res.ok) return;
         setCharacters(data);
-        dispatch({ type: "characters/load", payload: data });
-        setLoading(false);
+        dispatch({ type: "characters/loaded", payload: data });
       }
 
       fetchCharacters();
@@ -59,8 +68,8 @@ function Home() {
   );
 
   return (
-    <div>
-      {searchResults !== null && (
+    <MainDiv>
+      {searchResults !== null ? (
         <Div>
           <SearchTitle>
             {searchResults.length > 0 ? (
@@ -72,6 +81,10 @@ function Home() {
               "No Characters Found"
             )}
           </SearchTitle>
+        </Div>
+      ) : (
+        <Div>
+          <span>Characters List</span>
         </Div>
       )}
       <StyledCharacterContainer>
@@ -91,6 +104,7 @@ function Home() {
       </StyledCharacterContainer>
 
       {/* Pagination */}
+
       {((searchResults !== null && searchResults.length > 0) ||
         (searchResults === null && characters)) && (
         <Pagination
@@ -102,7 +116,7 @@ function Home() {
           currentPage={currentPage}
         />
       )}
-    </div>
+    </MainDiv>
   );
 }
 

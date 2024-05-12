@@ -7,8 +7,10 @@ const characterReducer = (state, action) => {
   switch (action.type) {
     case "character/open":
       return { ...state, character: action.payload };
-    case "characters/load":
-      return { ...state, characters: action.payload };
+    case "characters/loading":
+      return { ...state, loading: true };
+    case "characters/loaded":
+      return { ...state, characters: action.payload, loading: false };
     case "characters/search":
       return { ...state, searchResults: action.payload };
     case "characters/clearSearch":
@@ -23,6 +25,7 @@ export function CharacterContextProvider({ children }) {
     character: null,
     characters: null,
     searchResults: null,
+    loading: false,
   });
 
   return (

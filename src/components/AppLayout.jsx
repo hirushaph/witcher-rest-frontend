@@ -6,6 +6,7 @@ import styled from "styled-components";
 const MainContainer = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
+  gap: 60px;
 `;
 
 const Main = styled.main`
@@ -13,8 +14,8 @@ const Main = styled.main`
 `;
 
 const StyledAppLayout = styled.div`
-  height: 100vh;
   overflow: hidden;
+  margin-bottom: 30px;
 `;
 
 function AppLayout() {
