@@ -1,7 +1,7 @@
 {
-  "name": "witcher-rest",
+  "name": "witcher-rest-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -26,5 +26,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "vite": "^5.2.0"
-  }
+  },
+  "keywords": [
+    "witcher",
+    "witcher-rest",
+    "witcher-rest-frontend",
+    "the witcher characters"
+  ]
 }
